@@ -1,0 +1,42 @@
+ public Node pairwiseSwap(Node head)
+    {
+        // code here
+        Node temp=head;
+        Node ptr=null;
+        int len=0;
+        while(temp!=null)
+        {
+            len++;
+            temp=temp.next;
+        }
+        temp=head;
+        ptr=temp.next;
+        if(len==1)
+     return head;
+       else if(len%2==0)
+        {
+            while(temp!=null)
+            {
+                int k = temp.data;
+                temp.data=ptr.data;
+                ptr.data=k;
+                temp=ptr.next;
+                if(temp!=null)
+                {
+                    ptr=temp.next;
+                }
+            }
+        }
+        else 
+        {
+            while(temp.next!=null)
+            {
+                int k = temp.data;
+                temp.data=ptr.data;
+                ptr.data=k;
+                temp=ptr.next;
+                ptr=temp.next;
+            }
+        }
+      return head; 
+    }
